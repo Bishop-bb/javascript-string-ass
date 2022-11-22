@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Registration Form</h1>
+    
+
+    <div id="total">
+        
+    <fieldset id="fieldset1" class="fieldset">
+
+        <p>  Carefully fill out this form with the required information. Make sure the details you supply is correct before clicking the submit button...</p>
+        <div>
+          <h4>1. Enter Your Name:</h4> <input id="name" type="text" oninput="getname()"><br>    
+            <span id="in2"></span>
+        </div>
+
+        <div>
+           <h4>2. Enter Your Email: </h4><input name="ble" id="email" type="email" oninput="getemail()" ><br>
+            <span id="in3"></span>
+        </div>
+
+        <div>
+            <h4>3. Enter Your Phone number:</h4> <input name="ble" id="number" type="number" oninput="getnum()" ><br>
+            <span id="in4"></span>
+        </div>
+
+
+       <div>
+           <h4>4. Create a Password:</h4> <input name="ble" id="password" type="password"  oninput="getp()" ><br>
+            <span id="in5"></span>
+       </div>
+
+       <div>
+           <h4>5. Confirm  Password:</h4> <input name="ble" id="con" type="password" oninput="getp()" ><br>
+        <span id="in6"></span>
+
+        <!-- <small id ="passwordErr"></small> -->
+       </div>
+
+       <div>
+        <button onclick="submit()">Submit</button>
+       </div>
+
+
+   
+
+       
+    </fieldset>
+
+
+    <fieldset id="fieldset2" class="fieldset">
+
+        <h2>Validated Information</h2>
+        <div>
+            <span>Name:</span>  
+              <span id="i2"></span>
+          </div>
+  
+          <div>
+             <span>Email: </span>
+              <span id="i3"></span>
+          </div>
+  
+          <div>
+              <span> Phone number:</span> <br>
+              <span id="i4"></span>
+          </div>
+  
+  
+         <div>
+             <span> Password:</span> <br>
+              <span id="i5"></span>
+         </div>
+
+        
+    </fieldset>
+    
+
+    </div>
+
+
+    <script>
+        function submit(){
+            let mk = document.getElementById('name').value
+
+            document.getElementById('i2').innerHTML= mk;
+
+            let md = document.getElementById('email').value
+
+            // if(email.indexOf('@', 3) != -1 && email.indexOf('.') != -1 && (email.indexOf('gmail') != -1)  && email.indexOf('com') != -1){
+                document.getElementById('i3').innerHTML= md;
+            // }
+            
+
+            let mp = document.getElementById('number').value;
+            document.getElementById('i4').innerHTML= mp;
+
+            let mw = document.getElementById('con').value
+            document.getElementById('i5').innerHTML= mw;
+
+        }
+
+
+        function getname() {
+            let name = document.getElementById('name').value;
+
+            let nl = name.length
+
+            let data 
+
+            if (name == "") {
+                data = "input your name"
+            }
+            else if(nl > 3) {
+                data = ""
+            }
+            else if(nl <= 3) {
+                data = "Enter full name"
+            }
+
+
+            document.getElementById('in2').innerHTML = data;
+
+            // let mk = document.getElementById('name').value
+            
+            // document.getElementById('i2').innerHTML= mk
+
+
+
+            
+            // console.log(document.getElementById('name').value)
+           
+        }
+       
+        
+      
+
+
+        function getemail(){
+            let email = document.getElementById('email').value
+
+            let mail 
+
+            if (email == ""){
+                mail = "input your email"
+            }
+
+            else if(email.indexOf('@', 3) != -1 && email.indexOf('.') != -1 && (email.indexOf('gmail') != -1)  && email.indexOf('com') != -1){
+            mail = "Valid Mail"
+           }
+
+           else{
+            mail= "Invalid Email"
+           }
+
+           document.getElementById('in3').innerHTML= mail
+           }
+
+
+      function getnum() {
+        let number = document.getElementById('number').value;
+
+        let num 
+
+        if( (number.includes('081') || number.includes('070') || number.includes('091') || number.includes('080')) && number.length ==11 ){
+       num = "Valid Number"
+       }
+       else if ( number == "") {
+            num = "Enter a valid number"
+        }
+        else{
+        num = "Invalid number"
+        }
+
+      document.getElementById('in4').innerHTML= num
+
+
+       }
+
+       function getp() {
+        let password = document.getElementById('password').value
+
+        let pd 
+        if(password == "")(
+            pd = "enter your password"
+        )
+        else if(password.length < 3){
+            pd = "enter a longer password"
+        }
+        else{
+            pd = ""
+        }
+
+        document.getElementById('in5').innerHTML= pd
+
+
+        let conpassword = document.getElementById('con').value
+
+        let con
+
+        if(conpassword == ""){
+            con = "password must be the same as the above"
+        }
+        else if(document.getElementById('con').value == document.getElementById('password').value){
+            con = "password is a match"
+        }
+        else if(document.getElementById('con').value != document.getElementById('password').value){
+            con = "password is not a match"
+        }
+
+
+
+        // console.log(document.getElementById('con').value)
+        document.getElementById('in6').innerHTML= con
+
+       }
+
+
+    //    function submit(){
+    //    let name = document.getElementById('name').value;
+
+    //         let nl = name.length
+
+    //         let data 
+
+    //         if (name == "") {
+    //             data = "input your name"
+    //         }
+    //         else if(nl > 3) {
+    //             data = ""
+    //         }
+    //         else if(nl <= 3) {
+    //             data = "Enter full name"
+    //         }
+
+
+    //         document.getElementById('in2').innerHTML = data
+
+    //    }
+
+  
+
+
+
+    </script>
+    
+</body>
+</html>
