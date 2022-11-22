@@ -11,8 +11,9 @@ fieldset{
     
 }
 
-.input{
-    color: white;
+.input1{
+    /* color: white; */
+    background-color: white;
 }
 form{
     margin: 0 auto;
